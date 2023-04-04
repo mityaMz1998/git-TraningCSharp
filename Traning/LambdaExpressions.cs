@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Traning
 {
-    internal class Class1
+    public delegate int OperationLambda(int x, int y);
+    public class LambdaExpressions
     {
+        public OperationLambda multiply = (x, y) => x * y;
     }
 }

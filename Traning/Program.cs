@@ -1,9 +1,117 @@
-﻿using Traning;
+﻿using System.Runtime.CompilerServices;
+using Traning;
 
-var hello = () => Console.WriteLine("Hello");
-hello();       // Hello
-hello();       // Hello
-hello();       // Hello
+//Исключения:
+
+try
+{
+    Method2();
+}
+catch (Exception ex)
+{
+    Console.Write(ex.StackTrace.ToString());
+    Console.ReadKey();
+}
+
+//try
+//{
+//    Calc();
+//}
+//catch (MyCustomException e)
+//{
+//    Console.WriteLine("Catch MyCustomException");
+//    throw;
+//}
+//catch (DivideByZeroException e)
+//{
+//    Console.WriteLine("Catch Exception");
+//}
+//Console.ReadLine();
+
+static void Method2()
+{
+    try
+    {
+        Method1();
+    }
+    catch (Exception ex)
+    {
+        //throw ex resets the stack trace Coming from Method 1 and propogates it to the caller(Main)
+        throw ex;
+    }
+}
+
+static void Method1()
+{
+    try
+    {
+        throw new Exception("Inside Method1");
+    }
+    catch (Exception)
+    {
+        throw;
+    }
+}
+
+static void Calc()
+{
+    int result = 0;
+    var x = 5;
+    int y = 0;
+    try
+    {
+        result = x / y;
+    }
+    catch (MyCustomException e)
+    {
+        Console.WriteLine("Catch DivideByZeroException");
+        throw;
+    }
+    catch (Exception e) 
+    {
+        Console.WriteLine("Catch Exception");
+    }
+    finally
+    {
+        throw new MyCustomException();
+    }
+}
+
+class MyCustomException : DivideByZeroException
+{
+
+}
+
+
+
+// События:
+//AccountEv ae1 = new(300);
+//ae1.Put(50);
+//Console.WriteLine(ae1.Sum);
+//ae1.Take(100);
+//Console.WriteLine(ae1.Sum);
+////ae1.Notify += ae1.Put(20);
+
+//AccountEv ae2 = new(400);
+//ae2.Notify += ae2.DisplayMessage;
+//ae2.Put(50);
+//Console.WriteLine(ae2.Sum);
+//ae2.Take(100);
+//Console.WriteLine(ae1.Sum);
+
+// Лямбда-выражения:
+//LambdaExpressions lambdaExpressions = new LambdaExpressions();
+
+//var sum = (int x, int y) => x + y;
+//Console.WriteLine(sum(2,3));
+
+//Console.WriteLine(lambdaExpressions.multiply(2,3));
+
+//var sub = (int x, int y) =>
+//{
+//    if (x > y) return x - y;
+//    else return y - x;
+//};
 
 //Анонимные методы:
 //AnonymousMethods am = new AnonymousMethods();
