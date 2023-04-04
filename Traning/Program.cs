@@ -1,20 +1,10 @@
-﻿try
-{
-    int[] numbers = new int[4];
-    numbers[7] = 9;     // IndexOutOfRangeException
+﻿using Traning;
 
-    int x = 5;
-    int y = x / 0;  // DivideByZeroException
-    Console.WriteLine($"Результат: {y}");
-}
-catch (DivideByZeroException)
-{
-    Console.WriteLine("Возникло исключение DivideByZeroException");
-}
-catch (IndexOutOfRangeException ex)
-{
-    Console.WriteLine(ex.Message);
-}
+ReferencesAndValuesTypes referencesAndValuesTypes = new ReferencesAndValuesTypes();
 
-Console.Read();
+//referencesAndValuesTypes.Calculate1(5);
+Console.WriteLine(referencesAndValuesTypes.Calculate1(5));
 
+ReferencesAndValuesTypes.CalculateValue(5);
+
+ReferencesAndValuesTypes.CalculateReference("you");
