@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Traning
 {
-    internal class AnonymousMethods
+    public delegate int OperationA(int x, int y);
+    public class AnonymousMethods
     {
+        public OperationA operation = delegate (int x, int y)
+        {
+            return x + y;
+        };
+
+        public int OperationSum(int x, int y)
+        {
+            return x + y;
+        }
     }
 }

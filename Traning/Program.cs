@@ -1,5 +1,16 @@
 ﻿using Traning;
 
+var hello = () => Console.WriteLine("Hello");
+hello();       // Hello
+hello();       // Hello
+hello();       // Hello
+
+//Анонимные методы:
+//AnonymousMethods am = new AnonymousMethods();
+
+//Console.WriteLine(am.operation(4, 4));
+//Console.WriteLine(am.OperationSum(4, 4));
+
 // Пример вызова делегата:
 //Delegates d = new();
 
@@ -33,10 +44,10 @@
 //d.DoOperation(3, 6, d.Add);
 //d.DoOperation(3, 6, d.Subtract);
 
-Account account = new Account(1000);
-account.RegisterHandler(account.PrintSimpleMessage);
-account.Put(100);
-account.Take(200);
+//Account account = new Account(1000);
+//account.RegisterHandler(account.PrintSimpleMessage);
+//account.Put(100);
+//account.Take(200);
 
 
 //ReferencesAndValuesTypes referencesAndValuesTypes = new ReferencesAndValuesTypes();
