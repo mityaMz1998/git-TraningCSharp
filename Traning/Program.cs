@@ -1,5 +1,44 @@
 ﻿using Traning;
 
+// Пример вызова делегата:
+//Delegates d = new();
+
+//Operation op = d.Subtract;
+//op += d.Multiply;
+//op += d.Add;
+
+//Console.WriteLine(op(7, 2)); // вызов последнего метода из списка
+//Console.WriteLine(op.GetInvocationList()[1].DynamicInvoke(7, 2)); //вызов определенного метода из списка
+//Console.WriteLine("------------");
+
+//OperationDivision op2 = d.Division;
+////double result = op2(9, 2);
+//Console.WriteLine(op2(9.0, 2));
+//Console.WriteLine("------------");
+
+//Message? message = d.Hello;
+//message += d.HowAreYou;
+//message += d.HowAreYou;
+//message -= d.HowAreYou;
+//if (message != null)
+//    message();
+//Console.WriteLine("------------");
+
+//OperationVoid ov = d.AddVoid;
+//ov += d.SubstractVoid;
+//ov += d.MultiplyVoid;
+//ov(4, 2);
+//Console.WriteLine("------------");
+
+//d.DoOperation(3, 6, d.Add);
+//d.DoOperation(3, 6, d.Subtract);
+
+Account account = new Account(1000);
+account.RegisterHandler(account.PrintSimpleMessage);
+account.Put(100);
+account.Take(200);
+
+
 //ReferencesAndValuesTypes referencesAndValuesTypes = new ReferencesAndValuesTypes();
 
 //referencesAndValuesTypes.Calculate1(5);
@@ -14,10 +53,10 @@
 
 
 ////Копирование значимых и ссылочных типов
-State state1 = new State();
-State state2 = new State();
-State state3 = new State();
-State state4 = new State();
+//State state1 = new State();
+//State state2 = new State();
+//State state3 = new State();
+//State state4 = new State();
 
 //state1.x = 1;
 //state1.y = 2;
@@ -129,60 +168,60 @@ State state4 = new State();
 
 // Еще пример:
 // 1
-int a = 5;
-string str = "Abcd";
+//int a = 5;
+//string str = "Abcd";
 
-Console.WriteLine("Со значимыми типами");
-int Calculate(int b)
-{
-    b = 3;
-    return a + b;
-}
-Console.WriteLine(Calculate(a));
-Console.WriteLine(a);
+//Console.WriteLine("Со значимыми типами");
+//int Calculate(int b)
+//{
+//    b = 3;
+//    return a + b;
+//}
+//Console.WriteLine(Calculate(a));
+//Console.WriteLine(a);
 
-Console.WriteLine("----------------");
-Console.WriteLine("Отличия модификаторов in и ref");
-// с модификатором in:
-int CalculateIn(in int d)
-{
-    //d = 1; // нельзя вносить изменения
-    return d + a;
-}
-Console.WriteLine(CalculateIn(a));
-// с модификатором ref:
-int CalculateR(ref int d)
-{
-    return d + a;
-}
-Console.WriteLine(CalculateR(ref a));
-Console.WriteLine(a);
+//Console.WriteLine("----------------");
+//Console.WriteLine("Отличия модификаторов in и ref");
+//// с модификатором in:
+//int CalculateIn(in int d)
+//{
+//    //d = 1; // нельзя вносить изменения
+//    return d + a;
+//}
+//Console.WriteLine(CalculateIn(a));
+//// с модификатором ref:
+//int CalculateR(ref int d)
+//{
+//    return d + a;
+//}
+//Console.WriteLine(CalculateR(ref a));
+//Console.WriteLine(a);
 
-Console.WriteLine("----------------");
+//Console.WriteLine("----------------");
 
-int CalculateRef(ref int b)
-{
-    b = 3;
-    return a + b;
-}
-Console.WriteLine(CalculateRef(ref a));
-Console.WriteLine(a);
+//int CalculateRef(ref int b)
+//{
+//    b = 3;
+//    return a + b;
+//}
+//Console.WriteLine(CalculateRef(ref a));
+//Console.WriteLine(a);
 
 
-Console.WriteLine("----------------");
-Console.WriteLine("С ссылочными типами");
-string Result(string c)
-{
-    c = "efg";
-    return str + c;
-}
-Console.WriteLine(Result(str));
-Console.WriteLine(str);
-Console.WriteLine("----------------");
-string ResultRef(ref string c)
-{
-    c = "efg";
-    return str + c;
-}
-Console.WriteLine(ResultRef(ref str));
-Console.WriteLine(str);
+//Console.WriteLine("----------------");
+//Console.WriteLine("С ссылочными типами");
+//string Result(string c)
+//{
+//    c = "efg";
+//    return str + c;
+//}
+//Console.WriteLine(Result(str));
+//Console.WriteLine(str);
+//Console.WriteLine("----------------");
+//string ResultRef(ref string c)
+//{
+//    c = "efg";
+//    return str + c;
+//}
+//Console.WriteLine(ResultRef(ref str));
+//Console.WriteLine(str);
