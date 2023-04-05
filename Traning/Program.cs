@@ -1,17 +1,79 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using Traning;
 
-//Исключения:
+// Структуры:
+PersonStruct p4 = new PersonStruct();
+p4.Print();
+p4.age = 10;
+p4.Print();
 
-try
-{
-    Method2();
-}
-catch (Exception ex)
-{
-    Console.Write(ex.StackTrace.ToString());
-    Console.ReadKey();
-}
+Person5 person5 = new Person5();
+person5.Print();
+person5.age = 20;
+person5.name = "Kate";
+person5.Print();
+
+//Пример копирования структруры с with
+PersonStruct p6 = p4 with {age = 25 };
+p6.Print();
+
+// Классы, объекты, конструкторы, инициализаторы, деконструкторы
+//PersonClass p1 = new PersonClass();
+//p1.Print();
+
+//PersonClass p2 = new PersonClass("Bob", 43) { name = "Tom", age = 20};
+//p2.Print();
+
+//// 1 способ декомпозиции объекта
+//PersonClass p3 = new PersonClass("Jim", 30);
+//(string name, int age) = p3;
+//Console.WriteLine(name);
+//Console.WriteLine(age);
+
+//// 2 способ декомпозиции объекта
+//string n; 
+//int a;
+//p3.Deconstruct(out n, out a);
+//Console.WriteLine(n);
+//Console.WriteLine(a);
+
+
+//Исключения:
+//try
+//{
+//    Method2();
+//}
+//catch (Exception ex)
+//{
+//    Console.Write(ex.StackTrace.ToString());
+//    Console.ReadKey();
+//}
+
+//static void Method2()
+//{
+//    try
+//    {
+//        Method1();
+//    }
+//    catch (Exception ex)
+//    {
+//        //throw ex resets the stack trace Coming from Method 1 and propogates it to the caller(Main)
+//        throw ex;
+//    }
+//}
+
+//static void Method1()
+//{
+//    try
+//    {
+//        throw new Exception("Inside Method1");
+//    }
+//    catch (Exception)
+//    {
+//        throw;
+//    }
+//}
 
 //try
 //{
@@ -20,67 +82,52 @@ catch (Exception ex)
 //catch (MyCustomException e)
 //{
 //    Console.WriteLine("Catch MyCustomException");
-//    throw;
+//    //throw;
 //}
 //catch (DivideByZeroException e)
 //{
 //    Console.WriteLine("Catch Exception");
 //}
+//finally
+//{
+//    Console.WriteLine("gggg");
+//}
 //Console.ReadLine();
 
-static void Method2()
-{
-    try
-    {
-        Method1();
-    }
-    catch (Exception ex)
-    {
-        //throw ex resets the stack trace Coming from Method 1 and propogates it to the caller(Main)
-        throw ex;
-    }
-}
+//static void Calc()
+//{
+//    int result = 0;
+//    var x = 5;
+//    int y = 0;
+//    try
+//    {
+//        result = x / y;       
+//    }
+//    //catch (MyCustomException ex)
+//    //{
+//    //    Console.WriteLine("Catch DivideByZeroException");
+//    //    throw;
+//    //}
+//    catch (MyCustomException ex)
+//    {
+//        Console.WriteLine(ex.Message);
+//        throw;
+//    }
+//    catch (Exception ex) 
+//    {
+//        Console.WriteLine("Catch Exception");
+//        throw;
+//    }
+//    finally
+//    {
+//        throw new MyCustomException();
+//    }
+//}
 
-static void Method1()
-{
-    try
-    {
-        throw new Exception("Inside Method1");
-    }
-    catch (Exception)
-    {
-        throw;
-    }
-}
+//class MyCustomException : DivideByZeroException
+//{
 
-static void Calc()
-{
-    int result = 0;
-    var x = 5;
-    int y = 0;
-    try
-    {
-        result = x / y;
-    }
-    catch (MyCustomException e)
-    {
-        Console.WriteLine("Catch DivideByZeroException");
-        throw;
-    }
-    catch (Exception e) 
-    {
-        Console.WriteLine("Catch Exception");
-    }
-    finally
-    {
-        throw new MyCustomException();
-    }
-}
-
-class MyCustomException : DivideByZeroException
-{
-
-}
+//}
 
 
 
