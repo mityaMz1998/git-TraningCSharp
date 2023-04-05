@@ -2,21 +2,31 @@
 using System.Runtime.InteropServices;
 using Traning;
 
+AbstractClasses abstractClasses = new AbstractClasses();
+Figure triangle = new Triangle("треугольник",5,7,9);
+Figure rectangle = new Rectangle("прямоугольник",10,20);
+
+Console.WriteLine(triangle.CalcPerimetr());
+Console.WriteLine(triangle.CalcArea());
+Console.WriteLine();
+Console.WriteLine(rectangle.CalcPerimetr());
+Console.WriteLine(rectangle.CalcArea());
+
 // Структуры:
-PersonStruct p4 = new PersonStruct();
-p4.Print();
-p4.age = 10;
-p4.Print();
+//PersonStruct p4 = new PersonStruct();
+//p4.Print();
+//p4.age = 10;
+//p4.Print();
 
-Person5 person5 = new Person5();
-person5.Print();
-person5.age = 20;
-person5.name = "Kate";
-person5.Print();
+//Person5 person5 = new Person5();
+//person5.Print();
+//person5.age = 20;
+//person5.name = "Kate";
+//person5.Print();
 
-//Пример копирования структруры с with
-PersonStruct p6 = p4 with {age = 25 };
-p6.Print();
+////Пример копирования структруры с with
+//PersonStruct p6 = p4 with {age = 25 };
+//p6.Print();
 
 // Классы, объекты, конструкторы, инициализаторы, деконструкторы
 //PersonClass p1 = new PersonClass();
