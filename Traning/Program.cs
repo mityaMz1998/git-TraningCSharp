@@ -2,15 +2,46 @@
 using System.Runtime.InteropServices;
 using Traning;
 
-AbstractClasses abstractClasses = new AbstractClasses();
-Figure triangle = new Triangle("треугольник",5,7,9);
-Figure rectangle = new Rectangle("прямоугольник",10,20);
+//Интерфейсы:
+//IMovable ia = new IMovable();
+Console.WriteLine(IMovable.maxSpeed);
+Console.WriteLine(IMovable.minSpeed);
 
-Console.WriteLine(triangle.CalcPerimetr());
-Console.WriteLine(triangle.CalcArea());
+IMovable car = new Car();
+car.Move();
+car.Stop();
+
 Console.WriteLine();
-Console.WriteLine(rectangle.CalcPerimetr());
-Console.WriteLine(rectangle.CalcArea());
+
+IFigure circle = new Circle(4,"Круг");
+IFigure square = new Square(4,"Квадрат");
+Console.WriteLine(circle.CalcPerimetr());
+Console.WriteLine(circle.CalcArea());
+Console.WriteLine(square.CalcPerimetr());
+Console.WriteLine(square.CalcArea());
+
+//IMovable im = new Car();
+//im.Stop();
+
+//IMovable.Stop();
+
+//IMovable? movable = null;
+//movable?.Move();
+
+//void DoAction(IMovable movable) => movable.();
+//DoAction(car);
+
+
+//Абстрактные классы
+//AbstractClasses abstractClasses = new AbstractClasses();
+//Figure triangle = new Triangle("треугольник",5,7,9);
+//Figure rectangle = new Rectangle("прямоугольник",10,20);
+
+//Console.WriteLine(triangle.CalcPerimetr());
+//Console.WriteLine(triangle.CalcArea());
+//Console.WriteLine();
+//Console.WriteLine(rectangle.CalcPerimetr());
+//Console.WriteLine(rectangle.CalcArea());
 
 // Структуры:
 //PersonStruct p4 = new PersonStruct();

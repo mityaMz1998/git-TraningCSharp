@@ -30,6 +30,10 @@ namespace Traning
         {
             this.name = name;
         }
+        //public abstract int Radius()
+        //{
+        //    return 5;
+        //}
         public abstract double CalcArea();
 
         public abstract double CalcPerimetr();       
