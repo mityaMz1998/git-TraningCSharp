@@ -3,9 +3,34 @@ using System.Runtime.InteropServices;
 using Traning;
 
 //Интерфейсы:
-var telegram = new Messenger<BaseAction>();
-var message = new BaseAction("Hello!");
-telegram.Send(message);
+ProductComparable bread = new ProductComparable("Хлеб", 15);
+ProductComparable chocolate = new ProductComparable("Шоколад", 25);
+ProductComparable cake = new ProductComparable("Торт", 200);
+
+ProductComparable[] arr = { bread, chocolate, cake };
+Array.Sort(arr);
+
+foreach (ProductComparable item in arr)
+    Console.WriteLine(item.Name);
+
+//var bread = new Product("Хлеб", 15);
+//var chocolate = (Product)bread.Clone();
+
+//Console.WriteLine(bread.Name);
+//Console.WriteLine(bread.Price);
+//Console.WriteLine(chocolate.Name);
+//Console.WriteLine(chocolate.Price);
+
+//bread.Price = 20;
+//Console.WriteLine(bread.Name);
+//Console.WriteLine(bread.Price);
+//Console.WriteLine(chocolate.Name);
+//Console.WriteLine(chocolate.Price);
+
+//var telegram = new Messenger<BaseAction>();
+//var message = new BaseAction("Hello!");
+//telegram.Send(message);
+
 //A a = new C();
 //a.D();
 

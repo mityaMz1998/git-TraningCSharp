@@ -128,4 +128,42 @@ namespace Traning
     //    //void IAction.Move() => Console.WriteLine("Move Hero");
     //    //void IAction.Move() => Console.WriteLine("Move IAction");
     //}
+
+    // Интерфейс IClonable()
+    // Если при копировании объектов ссылочного типа любое изменение значения одного объекта также затронет изменение значения 
+    // другого объекта, то при помощи метода Clone() интерфейса ICloneable() изменение значения одного объекта не затронет изменение значения
+    // другого объекта.
+    public class Product : ICloneable
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public Product(string name, decimal price)
+        {
+            Name = name;
+            Price = price;
+        }
+        public object Clone()
+        {
+            return MemberwiseClone();
+            //return new Product(Name, Price);
+        }
+    }
+
+    //Интерфейс IComparable()
+    // Данный интерфейс применяется для сортировки сложных объектов
+    public class ProductComparable : IComparable
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public ProductComparable(string name, decimal price)
+        {
+            Name = name;
+            Price = price;
+        }
+        public int CompareTo(object obj)
+        {
+            if (obj is ProductComparable product) return Name.CompareTo(product.Name);
+            else throw new ArgumentException("Некорректное значение параметра");
+        }
+    }
 }
