@@ -49,9 +49,9 @@ namespace Traning
         public int x;
         public int y;
     }
-    class Person
-    {
-        public string name = "";
-        public int age;
-    }
+    //class Person
+    //{
+    //    public string name = "";
+    //    public int age;
+    //}
 }

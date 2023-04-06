@@ -2,16 +2,54 @@
 using System.Runtime.InteropServices;
 using Traning;
 
+//Преобразование типов при наследовании
+//Восходящее преобразование
+RaceCar raceCar = new RaceCar("Japan", 270);
+CarClass carClass = raceCar;
+Console.WriteLine(carClass.Country);
+
+//Нисходящее преобразование
+RaceCar raceCar1 = new RaceCar("Usa",290);
+CarClass carClass1 = raceCar1;
+RaceCar raceCar2 = (RaceCar)carClass1;
+Console.WriteLine(raceCar1.Country);
+
+Console.WriteLine();
+//Преобразование через as
+CarClass carClass2 = new CarClass("Germany");
+RaceCar? raceCar3 = carClass2 as RaceCar;
+Console.WriteLine($"{raceCar3?.Country}-{raceCar3?.Name}"); // вернет значения null
+
+// Преобразование через is
+if (carClass2 is RaceCar raceCar4)
+    Console.WriteLine($"{raceCar4?.Country}-{raceCar4?.Name}");
+else Console.WriteLine("Преобразование недопустимо");
+
+//Наследование
+//Person p1 = new Person() { Name = "Tom"};
+//p1.Print();
+
+//Person p2 = new Employee("Sam", "Microsoft");
+//p2.Print();
+
+//Employee p3 = new Employee("Kate", "Google");// { Name = "Kate", Company = "Google" };
+//p3.Print();
+
+//CarClass car1 = new CarClass();
+//CarClass car2 = new CarClass("Japan");
+//RaceCar raceCar1 = new RaceCar(car2.Country,280);
+
+
 //Интерфейсы:
-ProductComparable bread = new ProductComparable("Хлеб", 15);
-ProductComparable chocolate = new ProductComparable("Шоколад", 25);
-ProductComparable cake = new ProductComparable("Торт", 200);
+//ProductComparable bread = new ProductComparable("Хлеб", 15);
+//ProductComparable chocolate = new ProductComparable("Шоколад", 25);
+//ProductComparable cake = new ProductComparable("Торт", 200);
 
-ProductComparable[] arr = { bread, chocolate, cake };
-Array.Sort(arr);
+//ProductComparable[] arr = { bread, chocolate, cake };
+//Array.Sort(arr);
 
-foreach (ProductComparable item in arr)
-    Console.WriteLine(item.Name);
+//foreach (ProductComparable item in arr)
+//    Console.WriteLine(item.Name);
 
 //var bread = new Product("Хлеб", 15);
 //var chocolate = (Product)bread.Clone();
