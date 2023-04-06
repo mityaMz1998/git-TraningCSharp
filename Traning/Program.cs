@@ -3,22 +3,71 @@ using System.Runtime.InteropServices;
 using Traning;
 
 //Интерфейсы:
+var telegram = new Messenger<BaseAction>();
+var message = new BaseAction("Hello!");
+telegram.Send(message);
+//A a = new C();
+//a.D();
+
+//B b = new C();
+//b.D();
+
+//IAction baseAction = new BaseAction();
+//baseAction.Move();
+
+//ITruth truth = new BaseAction();
+//truth.Move();
+
+//IAction action = new BaseAction();
+//action.Move();
+
+//BaseAction baseAction1 = new HeroAction();
+//baseAction1.Move();
+
+//IAction action1 = new HeroAction();
+//action1.Move();
+
+//HeroAction heroAction = new HeroAction();
+//heroAction.Move();
+
 //IMovable ia = new IMovable();
-Console.WriteLine(IMovable.maxSpeed);
-Console.WriteLine(IMovable.minSpeed);
+//Console.WriteLine(IMovable.maxSpeed);
+//Console.WriteLine(IMovable.minSpeed);
 
-IMovable car = new Car();
-car.Move();
-car.Stop();
+//IMovable car = new Car();
+//car.Move();
+//car.Stop();
 
-Console.WriteLine();
+//Console.WriteLine();
 
-IFigure circle = new Circle(4,"Круг");
-IFigure square = new Square(4,"Квадрат");
-Console.WriteLine(circle.CalcPerimetr());
-Console.WriteLine(circle.CalcArea());
-Console.WriteLine(square.CalcPerimetr());
-Console.WriteLine(square.CalcArea());
+//IFigure circle = new Circle(4,"Круг");
+//IFigure square = new Square(4,"Квадрат");
+//Console.WriteLine(circle.CalcPerimetr());
+//Console.WriteLine(circle.CalcArea());
+//Console.WriteLine(square.CalcPerimetr());
+//Console.WriteLine(square.CalcArea());
+
+// Явная реализация интерфейса
+//BaseAction baseAction = new BaseAction();
+//((IAction)baseAction).Move();
+
+//if (baseAction is ITruth action)
+//   action.Move();
+
+//IAction baseAction1 = new BaseAction();
+//baseAction1.Move();
+
+//Console.WriteLine();
+//HeroAction heroAction = new HeroAction();
+//heroAction.Move(); // MoveIAction
+
+//BaseAction baseAction2 = new HeroAction();
+//baseAction2.Move(); // MoveIAction
+//((IAction)baseAction2).Move(); //MoveHero
+
+//IAction action3 = new HeroAction();
+//action3.Move(); //MoveHero
+
 
 //IMovable im = new Car();
 //im.Stop();

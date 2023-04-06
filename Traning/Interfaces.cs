@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,14 @@ namespace Traning
 {
     public interface Interfaces
     {
-        // Интерфейсы могут поддерживать методы, свойства, индексаторы, события,
+        // 1)Интерфейсы могут поддерживать методы, свойства, индексаторы, события,
         // статические поля и константы(начиная с версии C# 8), но не могут поддерживать нестатические поля.
-        // Если у свойств и методов интерфейса модификторы доступа private, то они должны иметь реализацию по умолчанию
+        // 2)Если у свойств и методов интерфейса модификторы доступа private, то они должны иметь реализацию по умолчанию
+        // 3)Если методы и свойства не имеют реализации пол умолчанию, то они должны быть переопределены в классе или структуре наследнике
 
         // Отличия интерфейса от класса:
         // 1) Если члены интерфейса не имеют модификаторов доступа, то по умолчанию они public (у классов private)
-
+        // 2) Интерфейс не может запретить наследование с помощью модификатора sealed
 
         // Что общего у интерфейсов и астрактных классов:
         // 1) Не могут создать объект;
@@ -26,6 +28,7 @@ namespace Traning
         // 4) Интерфейсы не могут содержать нестатичесие поля;
         // 5) Классы могут поддерживать множественное наследование интерфейсов, в то время как у абстрактного класса может наследоваться один раз;
         // 6) Члены интерфейса могут иметь реализацию по умолчанию;
+        // 7) Через ключевое слово new у интерфейсов можно скрыть методы
     }
     public interface IMovable
     {
@@ -96,4 +99,33 @@ namespace Traning
             return 4 * side;
         }
     }
+
+    public interface IAction
+    {
+        string Text { get; }
+    }
+    public interface ITruth : IAction
+    {
+        void Print();
+    }
+    class BaseAction : IAction, ITruth
+    {
+        public string Text { get; }
+        public BaseAction(string text) => Text = text;
+        public void Print() => Console.WriteLine(Text);
+    }
+    class Messenger<T> where T : IAction, ITruth
+    {
+        public void Send(T message)
+        {
+            Console.WriteLine("Отправка сообщения:");
+            message.Print();
+        }
+    }
+    //class HeroAction : BaseAction, IAction
+    //{
+    //    //public new void Move() => Console.WriteLine("Move HeroAction");
+    //    //void IAction.Move() => Console.WriteLine("Move Hero");
+    //    //void IAction.Move() => Console.WriteLine("Move IAction");
+    //}
 }

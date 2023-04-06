@@ -82,6 +82,21 @@ namespace Traning
         {
             double area = length * width;
             return area;
+        }       
+    }
+    public abstract class A
+    {
+        public void D()
+        {
+            Console.WriteLine("A");
         }
+    }
+    public abstract class B : A
+    {
+        public new void D() => Console.WriteLine("B");
+    }
+    class C : B
+    {
+
     }
 }
