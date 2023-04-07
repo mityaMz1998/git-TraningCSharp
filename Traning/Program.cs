@@ -3,11 +3,19 @@ using System.Runtime.InteropServices;
 using Traning;
 
 //Виртуальные члены
+//Console.WriteLine(G.minAge);
+//Console.WriteLine(G.typeName);
+//Console.WriteLine(H.minAge);
+//Console.WriteLine(H.typeName);
+
 Person bob = new Person("Bob");
 bob.Print();
 
 Employee tom = new Employee("Tom", "Microsoft");
 tom.Print();
+
+Person sam = new Employee("Sam","Google");
+sam.Print();
 
 //Aaa aaa = new Aaa();
 //aaa.MethodA();

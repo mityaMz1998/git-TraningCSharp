@@ -43,10 +43,10 @@ namespace Traning
         {
             Company = company;
         }
-        //public new void Print()
-        //{
-        //    Console.WriteLine($"Name: {Name} Company: {Company}");
-        //}
+        public new void Print()
+        {
+            Console.WriteLine($"Name: {Name} Company: {Company}");
+        }
         //public override void Print()
         //{
         //    Console.WriteLine($"{Name}-{Company}");
@@ -69,6 +69,10 @@ namespace Traning
         {
             Console.WriteLine("Aaaaa");
         }
+        //public virtual int MethodA()
+        //{
+        //    return 1;
+        //}
     }
     public class Bbb : Aaa
     {
