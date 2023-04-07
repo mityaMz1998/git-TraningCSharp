@@ -16,42 +16,42 @@ namespace Traning
         // 3)При наследовании модификатор доступа у производного класса должен быть таким же, как у базового класса, или строже.
         // 4)Не поддерживается множественное наследование
     }
-    class Person
-    {
-        private string _name = "";
+    //class Person
+    //{
+    //    private string _name = "";
 
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-        public Person()
-        {
-            Name = "Tom";
-            Console.WriteLine("Вызов конструктора без параметров");
-        }
-        public Person(string name)
-        {
-            Name = name;
-        }
-        public void Print()
-        {
-            Console.WriteLine(Name);
-        }
-    }
-    class Employee : Person
-    {
-        public string Company { get; set; } = "";
-        public Employee(string name, string company) : base(name)
-        {
-            Name = name;
-            Company = company;
-        }
-    }
-    class Company
-    {
-        public string Name { get; set; }
-    }
+    //    public string Name
+    //    {
+    //        get { return _name; }
+    //        set { _name = value; }
+    //    }
+    //    public Person()
+    //    {
+    //        Name = "Tom";
+    //        Console.WriteLine("Вызов конструктора без параметров");
+    //    }
+    //    public Person(string name)
+    //    {
+    //        Name = name;
+    //    }
+    //    public void Print()
+    //    {
+    //        Console.WriteLine(Name);
+    //    }
+    //}
+    //class Employee : Person
+    //{
+    //    public string Company { get; set; } = "";
+    //    public Employee(string name, string company) : base(name)
+    //    {
+    //        Name = name;
+    //        Company = company;
+    //    }
+    //}
+    //class Company
+    //{
+    //    public string Name { get; set; }
+    //}
 
     public class CarClass
     {

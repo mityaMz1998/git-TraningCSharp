@@ -2,28 +2,45 @@
 using System.Runtime.InteropServices;
 using Traning;
 
+//Виртуальные члены
+Person bob = new Person("Bob");
+bob.Print();
+
+Employee tom = new Employee("Tom", "Microsoft");
+tom.Print();
+
+//Aaa aaa = new Aaa();
+//aaa.MethodA();
+
+//Bbb bbb = new Bbb();
+//bbb.MethodA();
+
+//Ccc ccc = new Ccc();
+//ccc.MethodA();
+
+
 //Преобразование типов при наследовании
 //Восходящее преобразование
-RaceCar raceCar = new RaceCar("Japan", 270);
-CarClass carClass = raceCar;
-Console.WriteLine(carClass.Country);
+//RaceCar raceCar = new RaceCar("Japan", 270);
+//CarClass carClass = raceCar;
+//Console.WriteLine(carClass.Country);
 
-//Нисходящее преобразование
-RaceCar raceCar1 = new RaceCar("Usa",290);
-CarClass carClass1 = raceCar1;
-RaceCar raceCar2 = (RaceCar)carClass1;
-Console.WriteLine(raceCar1.Country);
+////Нисходящее преобразование
+//RaceCar raceCar1 = new RaceCar("Usa",290);
+//CarClass carClass1 = raceCar1;
+//RaceCar raceCar2 = (RaceCar)carClass1;
+//Console.WriteLine(raceCar1.Country);
 
-Console.WriteLine();
-//Преобразование через as
-CarClass carClass2 = new CarClass("Germany");
-RaceCar? raceCar3 = carClass2 as RaceCar;
-Console.WriteLine($"{raceCar3?.Country}-{raceCar3?.Name}"); // вернет значения null
+//Console.WriteLine();
+////Преобразование через as
+//CarClass carClass2 = new CarClass("Germany");
+//RaceCar? raceCar3 = carClass2 as RaceCar;
+//Console.WriteLine($"{raceCar3?.Country}-{raceCar3?.Name}"); // вернет значения null
 
-// Преобразование через is
-if (carClass2 is RaceCar raceCar4)
-    Console.WriteLine($"{raceCar4?.Country}-{raceCar4?.Name}");
-else Console.WriteLine("Преобразование недопустимо");
+//// Преобразование через is
+//if (carClass2 is RaceCar raceCar4)
+//    Console.WriteLine($"{raceCar4?.Country}-{raceCar4?.Name}");
+//else Console.WriteLine("Преобразование недопустимо");
 
 //Наследование
 //Person p1 = new Person() { Name = "Tom"};
