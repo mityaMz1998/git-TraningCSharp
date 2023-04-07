@@ -12,6 +12,33 @@ namespace Traning
         //и константам, также используя ключевое слово new
 
     }
+    //class User
+    //{
+    //    private string address;
+    //    private string name;
+    //    public string Address
+    //    {
+    //        get
+    //        {
+    //            return address;
+    //        }
+    //        set
+    //        {
+    //            address = value;
+    //        }
+    //    }
+    //    public string Name
+    //    {
+    //        get
+    //        {
+    //            return name;
+    //        }
+    //        set
+    //        {
+    //            name = value;
+    //        }
+    //    }
+    //}
     class G
     {
         public readonly static int minAge = 1;

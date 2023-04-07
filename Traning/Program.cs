@@ -2,20 +2,52 @@
 using System.Runtime.InteropServices;
 using Traning;
 
+
+//Обощенные типы:
+//User<int> user1 = new User<int>(1,"Joel");
+//User<int>.i = 25;
+//User<string> user2 = new User<string>("TTT","Jimmy");
+//User<string>.i = "aaa";
+//Console.WriteLine(user1.ToString());
+//Console.WriteLine(user2.ToString());
+
+User<string> person1 = new User<string>("34","James");
+User<int> person2 = new User<int>(45,"Farel");
+UniversalUser<int> person3 = new UniversalUser<int>(33,"Ora");
+Console.WriteLine(person1.ToString());
+Console.WriteLine(person2.ToString());
+Console.WriteLine(person3.ToString());
+
+Console.WriteLine();
+
+IntUser<string> user1 = new IntUser<string>(4,"Hhh");
+User<int> user2 = new IntUser<long>(3542,"BBB");
+Console.WriteLine(user1.ToString());
+Console.WriteLine(user2.ToString());
+
+//char a = '2';
+//int r = Convert.ToInt32(a);
+//Console.WriteLine(r);
+
+//Инкапсуляция
+//User user = new User();
+//user.Name = "Test";
+//Console.WriteLine(user.Name);
+
 //Виртуальные члены
 //Console.WriteLine(G.minAge);
 //Console.WriteLine(G.typeName);
 //Console.WriteLine(H.minAge);
 //Console.WriteLine(H.typeName);
 
-Person bob = new Person("Bob");
-bob.Print();
+//Person bob = new Person("Bob");
+//bob.Print();
 
-Employee tom = new Employee("Tom", "Microsoft");
-tom.Print();
+//Employee tom = new Employee("Tom", "Microsoft");
+//tom.Print();
 
-Person sam = new Employee("Sam","Google");
-sam.Print();
+//Person sam = new Employee("Sam","Google");
+//sam.Print();
 
 //Aaa aaa = new Aaa();
 //aaa.MethodA();
