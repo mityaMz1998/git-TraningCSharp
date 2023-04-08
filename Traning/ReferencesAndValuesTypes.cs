@@ -8,6 +8,8 @@ namespace Traning
 {
     public class ReferencesAndValuesTypes
     {
+        public int a = 5;
+        public string str = "Abcd";
         public static void CalculateValue(int t)
         {
             int x = 6;
@@ -27,6 +29,36 @@ namespace Traning
             int y = 7;
             int z = y + t;
             return z;
+        }
+
+        public int Calculate(int b)
+        {
+            b = 3;
+            return a + b;
+        }
+        public int CalculateIn(in int d)
+        {
+            //d = 1; // нельзя вносить изменения
+            return d + a;
+        }
+        public int CalculateR(ref int d)
+        {
+            return d + a;
+        }
+        public int CalculateRef(ref int b)
+        {
+            b = 3;
+            return a + b;
+        }
+        public string Result(string c)
+        {
+            c = "efg";
+            return str + c;
+        }
+        public string ResultRef(ref string c)
+        {
+            c = "efg";
+            return str + c;
         }
     }
 

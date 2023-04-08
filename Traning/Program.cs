@@ -3,6 +3,27 @@ using System.Runtime.InteropServices;
 using Traning;
 
 
+//Статические классы и их члены
+//K k = new K();
+//Console.WriteLine(k.a);
+//Console.WriteLine(K.u);
+//K k2 = new K(5);
+//Console.WriteLine(k2.a);
+//k2.Bn();
+
+//Console.WriteLine();
+//Console.WriteLine(L.s);
+//L.f();
+//Console.WriteLine();
+
+//M m = new M();
+//Console.WriteLine(m.structM());
+//Console.WriteLine(M.f);
+//M.m();
+
+
+//L l = new L();
+
 //Обощенные типы:
 //User<int> user1 = new User<int>(1,"Joel");
 //User<int>.i = 25;
@@ -11,19 +32,19 @@ using Traning;
 //Console.WriteLine(user1.ToString());
 //Console.WriteLine(user2.ToString());
 
-User<string> person1 = new User<string>("34","James");
-User<int> person2 = new User<int>(45,"Farel");
-UniversalUser<int> person3 = new UniversalUser<int>(33,"Ora");
-Console.WriteLine(person1.ToString());
-Console.WriteLine(person2.ToString());
-Console.WriteLine(person3.ToString());
+//User<string> person1 = new User<string>("34","James");
+//User<int> person2 = new User<int>(45,"Farel");
+//UniversalUser<int> person3 = new UniversalUser<int>(33,"Ora");
+//Console.WriteLine(person1.ToString());
+//Console.WriteLine(person2.ToString());
+//Console.WriteLine(person3.ToString());
 
-Console.WriteLine();
+//Console.WriteLine();
 
-IntUser<string> user1 = new IntUser<string>(4,"Hhh");
-User<int> user2 = new IntUser<long>(3542,"BBB");
-Console.WriteLine(user1.ToString());
-Console.WriteLine(user2.ToString());
+//IntUser<string> user1 = new IntUser<string>(4,"Hhh");
+//User<int> user2 = new IntUser<long>(3542,"BBB");
+//Console.WriteLine(user1.ToString());
+//Console.WriteLine(user2.ToString());
 
 //char a = '2';
 //int r = Convert.ToInt32(a);
@@ -428,64 +449,64 @@ Console.WriteLine(user2.ToString());
 //Country country1 = new Country();
 
 
-////Копирование значимых и ссылочных типов
-//State state1 = new State();
-//State state2 = new State();
-//State state3 = new State();
-//State state4 = new State();
+//Копирование значимых и ссылочных типов
+State state1 = new State();
+State state2 = new State();
+State state3 = new State();
+State state4 = new State();
 
-//state1.x = 1;
-//state1.y = 2;
+state1.x = 1;
+state1.y = 2;
 
-//state2 = state1;
-//state1.x = 5;
+state2 = state1;
+state1.x = 5;
 
-//state3 = state1;
-//state2.x = 10;
+state3 = state1;
+state2.x = 10;
 
-//state4 = state1;
-//state3.x = 20;
+state4 = state1;
+state3.x = 20;
 
-//Console.WriteLine("X:");
-//Console.WriteLine(state1.x);
-//Console.WriteLine(state2.x);
-//Console.WriteLine(state3.x);
-//Console.WriteLine(state4.x);
-//Console.WriteLine("Y:");
-//Console.WriteLine(state1.y);
-//Console.WriteLine(state2.y);
-//Console.WriteLine(state3.y);
-//Console.WriteLine(state4.y);
+Console.WriteLine("X:");
+Console.WriteLine(state1.x);
+Console.WriteLine(state2.x);
+Console.WriteLine(state3.x);
+Console.WriteLine(state4.x);
+Console.WriteLine("Y:");
+Console.WriteLine(state1.y);
+Console.WriteLine(state2.y);
+Console.WriteLine(state3.y);
+Console.WriteLine(state4.y);
 
-//Console.WriteLine("---------------------");
+Console.WriteLine("---------------------");
 
-//Country country1 = new Country();
-//Country country2 = new Country();
-//Country country3 = new Country();
-//Country country4 = new Country();
+Country country1 = new Country();
+Country country2 = new Country();
+Country country3 = new Country();
+Country country4 = new Country();
 
-//country2.x = 1;
-//country2.y = 4;
+country2.x = 1;
+country2.y = 4;
 
-//country1 = country2;
-//country2.x = 7;
+country1 = country2;
+country2.x = 7;
 
-//country3 = country1;
-//country1.x = 9;
+country3 = country1;
+country1.x = 9;
 
-//country4 = country3;
-//country3.x = 13;
+country4 = country3;
+country3.x = 13;
 
-//Console.WriteLine("X:");
-//Console.WriteLine(country1.x);
-//Console.WriteLine(country2.x);
-//Console.WriteLine(country3.x);
-//Console.WriteLine(country4.x);
-//Console.WriteLine("Y:");
-//Console.WriteLine(country1.y);
-//Console.WriteLine(country2.y);
-//Console.WriteLine(country3.y);
-//Console.WriteLine(country4.y);
+Console.WriteLine("X:");
+Console.WriteLine(country1.x);
+Console.WriteLine(country2.x);
+Console.WriteLine(country3.x);
+Console.WriteLine(country4.x);
+Console.WriteLine("Y:");
+Console.WriteLine(country1.y);
+Console.WriteLine(country2.y);
+Console.WriteLine(country3.y);
+Console.WriteLine(country4.y);
 
 
 ////Копирование ссылочных типов внутри типов значений
@@ -506,98 +527,34 @@ Console.WriteLine(user2.ToString());
 //Console.WriteLine(state4.country.x); // 10
 
 
-// Примеры с объектом класса как параметром метода
-// Без ref:
-//Person p = new Person { name = "Tom", age = 23 };
-//ChangePerson(p);
-
-//Console.WriteLine(p.name); // Alice
-//Console.WriteLine(p.age); // 23
-
-//void ChangePerson(Person person)
-//{
-//    // сработает
-//    person.name = "Alice";
-//    // сработает только в рамках данного метода
-//    person = new Person { name = "Bill", age = 45 };
-//    Console.WriteLine(person.name);
-//    Console.WriteLine(person.age);
-//}
-
-//Console.WriteLine();
-//// С ref:
-//void ChangePersonRef(ref Person person)
-//{
-//    // сработает
-//    person.name = "Alice";
-//    // сработает только в рамках данного метода
-//    person = new Person { name = "Bill", age = 45 };
-//    Console.WriteLine(person.name);
-//    Console.WriteLine(person.age);
-//}
-
-//ChangePersonRef(ref p);
-
-//Console.WriteLine(p.name); // Bill
-//Console.WriteLine(p.age); // 45
-
-
-// Еще пример:
-// 1
+//Еще пример:
 //int a = 5;
 //string str = "Abcd";
 
+//ReferencesAndValuesTypes referencesAndValuesTypes = new ReferencesAndValuesTypes();
+
 //Console.WriteLine("Со значимыми типами");
-//int Calculate(int b)
-//{
-//    b = 3;
-//    return a + b;
-//}
-//Console.WriteLine(Calculate(a));
-//Console.WriteLine(a);
+//Console.WriteLine(referencesAndValuesTypes.Calculate(referencesAndValuesTypes.a));
+//Console.WriteLine(referencesAndValuesTypes.a);
 
 //Console.WriteLine("----------------");
 //Console.WriteLine("Отличия модификаторов in и ref");
 //// с модификатором in:
-//int CalculateIn(in int d)
-//{
-//    //d = 1; // нельзя вносить изменения
-//    return d + a;
-//}
-//Console.WriteLine(CalculateIn(a));
+//Console.WriteLine(referencesAndValuesTypes.CalculateIn(referencesAndValuesTypes.a));
 //// с модификатором ref:
-//int CalculateR(ref int d)
-//{
-//    return d + a;
-//}
-//Console.WriteLine(CalculateR(ref a));
-//Console.WriteLine(a);
+//Console.WriteLine(referencesAndValuesTypes.CalculateR(ref referencesAndValuesTypes.a));
+//Console.WriteLine(referencesAndValuesTypes.a);
 
 //Console.WriteLine("----------------");
 
-//int CalculateRef(ref int b)
-//{
-//    b = 3;
-//    return a + b;
-//}
-//Console.WriteLine(CalculateRef(ref a));
-//Console.WriteLine(a);
+//Console.WriteLine(referencesAndValuesTypes.CalculateRef(ref referencesAndValuesTypes.a));
+//Console.WriteLine(referencesAndValuesTypes.a);
 
 
 //Console.WriteLine("----------------");
 //Console.WriteLine("С ссылочными типами");
-//string Result(string c)
-//{
-//    c = "efg";
-//    return str + c;
-//}
-//Console.WriteLine(Result(str));
-//Console.WriteLine(str);
+//Console.WriteLine(referencesAndValuesTypes.Result(referencesAndValuesTypes.str));
+//Console.WriteLine(referencesAndValuesTypes.str);
 //Console.WriteLine("----------------");
-//string ResultRef(ref string c)
-//{
-//    c = "efg";
-//    return str + c;
-//}
-//Console.WriteLine(ResultRef(ref str));
-//Console.WriteLine(str);
+//Console.WriteLine(referencesAndValuesTypes.ResultRef(ref referencesAndValuesTypes.str));
+//Console.WriteLine(referencesAndValuesTypes.str);
