@@ -1,8 +1,11 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using Traning;
 using System;
 
+//Коллекции
+List<string> people = new List<string>();
 
 //Статические классы и их члены
 //K k = new K();
@@ -394,8 +397,6 @@ using System;
 //{
 
 //}
-
-
 
 // События:
 NumOperations nm = new NumOperations();
