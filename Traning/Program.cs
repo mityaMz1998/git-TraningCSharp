@@ -398,6 +398,15 @@ using System;
 
 
 // События:
+NumOperations nm = new NumOperations();
+nm.Notification += nm.DisplayMessage;
+nm.Sum(3, 5);
+//nm.Notification += nm.DisplayMessage;
+//nm.Notification -= nm.DisplayMessage;
+nm.Sub(20, 10);
+//nm.Notification += nm.DisplayMessage;
+
+
 //AccountEv ae1 = new(300);
 //ae1.Put(50);
 //Console.WriteLine(ae1.Sum);
@@ -427,13 +436,13 @@ using System;
 //};
 
 //Анонимные методы:
-AnonymousMethods am = new AnonymousMethods();
+//AnonymousMethods am = new AnonymousMethods();
 
-Console.WriteLine(am.operationSum(4, 4));
-Console.WriteLine(am.OperationSum(4, 4));
+//Console.WriteLine(am.operationSum(4, 4));
+//Console.WriteLine(am.OperationSum(4, 4));
 
-Console.WriteLine(am.operationSub(8,5));
-Console.WriteLine(am.OperationSub(8,5));
+//Console.WriteLine(am.operationSub(8,5));
+//Console.WriteLine(am.OperationSub(8,5));
 
 // Пример вызова делегата:
 //Delegates d = new();

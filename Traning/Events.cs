@@ -9,27 +9,28 @@ namespace Traning
     public class Events
     {
     }
-    //public class NumOperations
-    //{
-    //    public delegate int AccHadler(int x, int y);
-    //    public event AccHadler? Notification;
+    public class NumOperations
+    {
+        public delegate void AccHadler(string message);
+        public event AccHadler? Notification;
 
-    //    public int sum;
-    //    public int sub;
+        public int sum;
+        public int sub;
 
-    //    public int Sum(int x, int y)
-    //    {
-    //        sum = x + y;
-    //        Notification?.Invoke($"Произошло сложение чисел: ");
-    //        return sum;
-    //    }
-    //    public int Sub(int x, int y)
-    //    {
-    //        sub = x - y;
-    //        Console.WriteLine($"Произошло вычитание чисел:");
-    //        return sum;
-    //    }
-    //}
+        public int Sum(int x, int y)
+        {
+            sum = x + y;
+            Notification?.Invoke($"Произошло сложение чисел:");
+            return sum;
+        }
+        public int Sub(int x, int y)
+        {
+            sub = x - y;
+            Notification?.Invoke($"Произошло вычитание чисел:");
+            return sum;
+        }
+        public void DisplayMessage(string message) => Console.WriteLine(message);
+    }
     public class AccountEv
     {
         public delegate void AccountHandler(string message);
