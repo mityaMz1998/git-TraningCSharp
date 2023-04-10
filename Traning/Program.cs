@@ -1,6 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Traning;
+using System;
 
 
 //Статические классы и их члены
@@ -273,12 +274,46 @@ using Traning;
 //Исключения:
 //try
 //{
+//    //throw new AccessViolationException();
+//    int x = 5;
+//    int y = x / 0;
+//    //throw new AccessViolationException();
+//    Console.WriteLine($"Результат: {y}");
+//    //throw new AccessViolationException();
+//}
+////catch (Exception)
+////{
+////    Console.WriteLine("Возникло исключение Exception");
+////}
+//catch (AccessViolationException)
+//{
+//    Console.WriteLine("Возникло исключение AccessViolationException");
+//}
+//catch (DivideByZeroException ex)
+//{
+//    Console.WriteLine("Возникло исключение DivideByZeroException");
+//    //throw;
+//}
+//catch (Exception ex)
+//{
+//    Console.WriteLine("Возникло исключение Exception");
+//    //throw;
+//}
+//finally
+//{
+//    Console.WriteLine("Конец блока");
+//    throw new AccessViolationException();
+//}
+
+
+//try
+//{
 //    Method2();
 //}
 //catch (Exception ex)
 //{
 //    Console.Write(ex.StackTrace.ToString());
-//    Console.ReadKey();
+//    //Console.ReadKey();
 //}
 
 //static void Method2()
@@ -290,7 +325,7 @@ using Traning;
 //    catch (Exception ex)
 //    {
 //        //throw ex resets the stack trace Coming from Method 1 and propogates it to the caller(Main)
-//        throw ex;
+//        throw;
 //    }
 //}
 
@@ -392,10 +427,13 @@ using Traning;
 //};
 
 //Анонимные методы:
-//AnonymousMethods am = new AnonymousMethods();
+AnonymousMethods am = new AnonymousMethods();
 
-//Console.WriteLine(am.operation(4, 4));
-//Console.WriteLine(am.OperationSum(4, 4));
+Console.WriteLine(am.operationSum(4, 4));
+Console.WriteLine(am.OperationSum(4, 4));
+
+Console.WriteLine(am.operationSub(8,5));
+Console.WriteLine(am.OperationSub(8,5));
 
 // Пример вызова делегата:
 //Delegates d = new();
@@ -450,63 +488,63 @@ using Traning;
 
 
 //Копирование значимых и ссылочных типов
-State state1 = new State();
-State state2 = new State();
-State state3 = new State();
-State state4 = new State();
+//State state1 = new State();
+//State state2 = new State();
+//State state3 = new State();
+//State state4 = new State();
 
-state1.x = 1;
-state1.y = 2;
+//state1.x = 1;
+//state1.y = 2;
 
-state2 = state1;
-state1.x = 5;
+//state2 = state1;
+//state1.x = 5;
 
-state3 = state1;
-state2.x = 10;
+//state3 = state1;
+//state2.x = 10;
 
-state4 = state1;
-state3.x = 20;
+//state4 = state1;
+//state3.x = 20;
 
-Console.WriteLine("X:");
-Console.WriteLine(state1.x);
-Console.WriteLine(state2.x);
-Console.WriteLine(state3.x);
-Console.WriteLine(state4.x);
-Console.WriteLine("Y:");
-Console.WriteLine(state1.y);
-Console.WriteLine(state2.y);
-Console.WriteLine(state3.y);
-Console.WriteLine(state4.y);
+//Console.WriteLine("X:");
+//Console.WriteLine(state1.x);
+//Console.WriteLine(state2.x);
+//Console.WriteLine(state3.x);
+//Console.WriteLine(state4.x);
+//Console.WriteLine("Y:");
+//Console.WriteLine(state1.y);
+//Console.WriteLine(state2.y);
+//Console.WriteLine(state3.y);
+//Console.WriteLine(state4.y);
 
-Console.WriteLine("---------------------");
+//Console.WriteLine("---------------------");
 
-Country country1 = new Country();
-Country country2 = new Country();
-Country country3 = new Country();
-Country country4 = new Country();
+//Country country1 = new Country();
+//Country country2 = new Country();
+//Country country3 = new Country();
+//Country country4 = new Country();
 
-country2.x = 1;
-country2.y = 4;
+//country2.x = 1;
+//country2.y = 4;
 
-country1 = country2;
-country2.x = 7;
+//country1 = country2;
+//country2.x = 7;
 
-country3 = country1;
-country1.x = 9;
+//country3 = country1;
+//country1.x = 9;
 
-country4 = country3;
-country3.x = 13;
+//country4 = country3;
+//country3.x = 13;
 
-Console.WriteLine("X:");
-Console.WriteLine(country1.x);
-Console.WriteLine(country2.x);
-Console.WriteLine(country3.x);
-Console.WriteLine(country4.x);
-Console.WriteLine("Y:");
-Console.WriteLine(country1.y);
-Console.WriteLine(country2.y);
-Console.WriteLine(country3.y);
-Console.WriteLine(country4.y);
+//Console.WriteLine("X:");
+//Console.WriteLine(country1.x);
+//Console.WriteLine(country2.x);
+//Console.WriteLine(country3.x);
+//Console.WriteLine(country4.x);
+//Console.WriteLine("Y:");
+//Console.WriteLine(country1.y);
+//Console.WriteLine(country2.y);
+//Console.WriteLine(country3.y);
+//Console.WriteLine(country4.y);
 
 
 ////Копирование ссылочных типов внутри типов значений

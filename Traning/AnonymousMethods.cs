@@ -9,7 +9,7 @@ namespace Traning
     public delegate int OperationA(int x, int y);
     public class AnonymousMethods
     {
-        public OperationA operation = delegate (int x, int y)
+        public OperationA operationSum = delegate (int x, int y)
         {
             return x + y;
         };
@@ -18,5 +18,12 @@ namespace Traning
         {
             return x + y;
         }
+
+        public OperationA operationSub = delegate (int x, int y)
+        {
+            return x - y;
+        };
+
+        public int OperationSub(int x, int y) => x - y;
     }
 }
