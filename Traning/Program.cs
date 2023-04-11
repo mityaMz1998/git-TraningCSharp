@@ -1,11 +1,171 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
+//using System.
 using Traning;
 using System;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Collections;
 
 //Коллекции
-List<string> people = new List<string>();
+//var people = new List<string>() { "Tom", "Bob", "Sam" };
+//var employees = new List<string>(people) {"Mike"};
+
+//string firstPerson = people[1];
+//Console.WriteLine(firstPerson);
+//people[0] = "Kate";
+//Console.WriteLine(people[0]);
+//Console.WriteLine(employees.Count);
+//employees.Add("Colin");
+
+//Console.WriteLine(employees.BinarySearch("Sam"));
+//foreach (var person in employees)
+//    Console.WriteLine(person);
+
+// Интерфейсы IEnumerable и IEnumerator
+Week week = new Week();
+foreach (var day in week)
+{
+Console.WriteLine(day);
+}
+class Week //: IEnumerable
+{
+    string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday",
+                         "Friday", "Saturday", "Sunday" };
+    public IEnumerator GetEnumerator() => days.GetEnumerator();
+}
+
+//Коллекция ObservableCollection
+//var people = new ObservableCollection<string>
+//
+//    "Jake", "Ammy", "Fara"
+//};
+//Console.WriteLine(people[0]);
+//people[0] = "Jack";
+//Console.WriteLine(people[0]);
+
+//var list = new ObservableCollection<N>()
+//{
+//    new N("Tom"),
+//    new N("Sam")
+//};
+//list.CollectionChanged += N.People_CollectionChanged;
+
+//list.Add(new N("Bob"));
+
+//list.RemoveAt(1);
+//list[0] = new N("Eugene");
+
+//Console.WriteLine("\nСписок пользователей:");
+//foreach (var person in list)
+//{
+//    Console.WriteLine(person.H);
+//}
+
+//Словарь
+//var people = new Dictionary<int, string>()
+//{
+//    {4, "Tom"},
+//    {2, "Lola"},
+//    {7, "Dic"}
+//};
+//foreach (var i in people)
+//    Console.WriteLine(i);
+
+//string p1 = people[2];
+//Console.WriteLine(p1);
+//Console.WriteLine();
+
+//people[10] = "Kate";
+//foreach (var i in people)
+//    Console.WriteLine(i);
+
+//var i1 = people.Keys;
+//Console.WriteLine(i1);
+
+//Стек
+//var stack = new List<int> { 1, 2, 3, 4, 5};
+//Stack<int> stack1 = new Stack<int>(stack);
+//foreach (int i in stack1)
+//    Console.WriteLine(i);
+
+//Console.WriteLine();
+
+//var stackNumbers = new Stack<int>();
+//stackNumbers.Push(1);
+//stackNumbers.Push(2);
+//stackNumbers.Push(3);
+
+//foreach (int i in stackNumbers)
+//    Console.WriteLine(i);
+
+//Console.WriteLine();
+
+//int findFirstEl = stackNumbers.Peek();
+//Console.WriteLine(findFirstEl);
+
+//Console.WriteLine();
+
+//int p1 = stackNumbers.Pop();
+//Console.WriteLine(p1);
+
+//int p2 = stackNumbers.Pop();
+//Console.WriteLine(p2);
+
+//Console.WriteLine();
+
+//foreach (int i in stackNumbers)
+//    Console.WriteLine(i);
+
+//Связанный список
+//LinkedList<string> people = new LinkedList<string>();
+//var employees = new List<string> { "Tom", "Sam", "Bob" };
+
+//LinkedList<string> people1 = new LinkedList<string>(employees);
+//people1.AddLast("Angel");
+//people1.AddFirst("Ann");
+//// вставляем после первого узла новый узел со значением Mike
+//if (people1.First != null)
+//{
+//    people1.AddAfter(people1.First, "Paul");
+//    people1.AddBefore(people1.First, "Seva");
+//}
+//if (people1.Last != null)
+//    people1.RemoveLast();
+
+//LinkedListNode<string> currentNode = people1?.First;
+//while (currentNode != null)
+//{
+//    Console.WriteLine(currentNode.Value);
+//    currentNode = currentNode?.Next;
+//}
+//Console.WriteLine();
+//currentNode = people1?.Last;
+//while (currentNode != null)
+//{
+//    Console.WriteLine(currentNode.Value);
+//    currentNode = currentNode?.Previous;
+//}
+
+//Очередь
+//var employees = new List<string> { "Tom", "Sam", "Bob" };
+//Queue<string> people = new Queue<string>(employees);
+//foreach (var person in people) Console.WriteLine(person);
+//Console.WriteLine(people.Count);
+//Console.WriteLine();
+
+//var people = new Queue<string>();
+//people.Enqueue("Tom");
+//people.Enqueue("Sam");
+//foreach (var person in people) Console.WriteLine(person);
+
+//var firstPerson = people.Peek();
+//Console.WriteLine(firstPerson);
+
+//people.Dequeue();
+
+//foreach (var person in people) Console.WriteLine(person);
 
 //Статические классы и их члены
 //K k = new K();
@@ -399,14 +559,10 @@ List<string> people = new List<string>();
 //}
 
 // События:
-NumOperations nm = new NumOperations();
-nm.Notification += nm.DisplayMessage;
-nm.Sum(3, 5);
+//NumOperations nm = new NumOperations();
 //nm.Notification += nm.DisplayMessage;
-//nm.Notification -= nm.DisplayMessage;
-nm.Sub(20, 10);
-//nm.Notification += nm.DisplayMessage;
-
+//nm.Sum(3, 5);
+//nm.Sub(20, 10);
 
 //AccountEv ae1 = new(300);
 //ae1.Put(50);
