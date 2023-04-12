@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,5 +43,64 @@ namespace Traning
                     break;
             }
         }
+    }
+    class WeekEnumerator : IEnumerator
+    {
+        string[] days;
+        int position = -1;
+        public WeekEnumerator(string[] days) => this.days = days;
+        public object Current
+        {
+            get
+            {
+                if (position == -1 || position >= days.Length)
+                    throw new ArgumentException();
+                return days[position];
+            }
+        }
+        public bool MoveNext()
+        {
+            if (position < days.Length - 1)
+            {
+                position++;
+                return true;
+            }
+            else
+                return false;
+        }
+        public void Reset() => position = -1;
+    }
+    class Week
+    {
+        string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday",
+                            "Friday", "Saturday", "Sunday" };
+        public IEnumerator GetEnumerator() => new WeekEnumerator(days);
+    }
+    class MyInt : IEnumerator, IEnumerable
+    {
+        int[] ints = {1,2,3,4,5,6,7,8,9,10};
+        int position = 1;
+        public IEnumerator GetEnumerator()
+        {
+            return this;
+        }
+        public bool MoveNext() 
+        {
+            if (position < ints.Length - 3)
+            {
+                position = position + 3;
+                return true;
+            }
+            else
+                return false;
+        }
+        public object Current 
+        {
+            get
+            {
+                return ints[position];
+            }
+        }
+        public void Reset() => position = 1;
     }
 }

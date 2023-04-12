@@ -23,17 +23,47 @@ using System.Collections;
 //foreach (var person in employees)
 //    Console.WriteLine(person);
 
-// Интерфейсы IEnumerable и IEnumerator
-Week week = new Week();
-foreach (var day in week)
+// Интерфейсы IEnumerable и IEnumerator:
+//Week week = new Week();
+//foreach (var day in week)
+//{
+//Console.WriteLine(day);
+//}
+
+//// С циклом foreach:
+//string[] arr = new string[] {"Holly","TJ","Bill"};
+//foreach (string s in arr)
+//    Console.WriteLine(s);
+
+//Console.WriteLine();
+////Без цикла foreach:
+//IEnumerator peopleEnumerator = arr.GetEnumerator(); // получаем IEnumerator
+//while (peopleEnumerator.MoveNext())   // пока не будет возвращено false
+//{
+//    string item = (string)peopleEnumerator.Current; // получаем элемент на текущей позиции
+//    Console.WriteLine(item);
+//}
+//peopleEnumerator.Reset(); // сбрасываем указатель в начало массива
+
+////Реализация собственного способа итерации коллекции
+//MyInt mi = new MyInt();
+//foreach (int i in mi)
+//    Console.Write(i + "\t");
+
+//Оператор yield
+foreach (int i in ProduceEvenNumbers(9))
 {
-Console.WriteLine(day);
+    Console.Write(i);
+    Console.Write(" ");
 }
-class Week //: IEnumerable
+// Output: 0 2 4 6 8
+
+IEnumerable ProduceEvenNumbers(int upto)
 {
-    string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday",
-                         "Friday", "Saturday", "Sunday" };
-    public IEnumerator GetEnumerator() => days.GetEnumerator();
+    for (int i = 0; i <= upto; i += 2)
+    {
+        yield return i;
+    }
 }
 
 //Коллекция ObservableCollection
