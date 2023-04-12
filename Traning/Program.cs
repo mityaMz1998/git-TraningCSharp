@@ -1,12 +1,86 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
-//using System.
 using Traning;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Collections;
+using System.Threading;
+
+//public delegate void ThreadStart();
+//Многопоточность
+// Блокировка кода (lock)
+int x;
+AutoResetEvent waitHandler = new AutoResetEvent(true);
+Mutex mutexObj = new();
+object locker = new();
+for (int i = 1; i < 6; i++)
+{
+    Thread thread = new(Print);
+    thread.Name = $"Поток {i}";
+    thread.Start();
+}
+
+//
+void Print() 
+{
+    // Мьютексы
+    mutexObj.WaitOne();     // приостанавливаем поток до получения мьютекса
+    x = 1;
+    for (int i = 1; i < 6; i++)
+    {
+        Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
+        x++;
+        Thread.Sleep(100);
+    }
+    mutexObj.ReleaseMutex();    // освобождаем мьютекс
+
+    // Класс AutoResetEvent
+    //waitHandler.WaitOne();  // ожидаем сигнала
+    //x = 1;
+    //for (int i = 1; i < 6; i++)
+    //{
+    //    Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
+    //    x++;
+    //    Thread.Sleep(100);
+    //}
+    //waitHandler.Set();  //  сигнализируем, что waitHandler в сигнальном состоянии
+
+    // Монитор
+    //bool acquiredLock = false;
+    //try
+    //{
+    //    Monitor.Enter(locker, ref acquiredLock);
+    //    x = 1;
+    //    for (int i = 1; i < 6; i++)
+    //    {
+    //        Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
+    //        x++;
+    //        Thread.Sleep(100);
+    //    }
+    //}
+    //finally
+    //{
+    //    if (acquiredLock) Monitor.Exit(locker);
+    //}
+}
+
+
+//int chislo = 7;
+//Thr thr = new Thr();
+//Thread thread2 = new Thread(thr.SecondThread);
+//thread2.Start();
+//Thread thread3 = new Thread(thr.ThirdThread);
+//thread3.Start(chislo);
+//for (int i = 0; i < 5; i++)
+//{
+//    Console.WriteLine("Главный поток:");
+//    Console.WriteLine(i);
+//    Thread.Sleep(1000);
+//}
+
+//Console.WriteLine();
 
 //Коллекции
 //var people = new List<string>() { "Tom", "Bob", "Sam" };
@@ -51,20 +125,17 @@ using System.Collections;
 //    Console.Write(i + "\t");
 
 //Оператор yield
-foreach (int i in ProduceEvenNumbers(9))
-{
-    Console.Write(i);
-    Console.Write(" ");
-}
-// Output: 0 2 4 6 8
+//foreach (int i in ListInt(5))
+//{
+//    Console.Write(i);
+//    Console.Write(" ");
+//}
+//IEnumerable ListInt(int n)
+//{
+//    for (int i = 0; i < n; i++)
+//        yield return i;
+//}
 
-IEnumerable ProduceEvenNumbers(int upto)
-{
-    for (int i = 0; i <= upto; i += 2)
-    {
-        yield return i;
-    }
-}
 
 //Коллекция ObservableCollection
 //var people = new ObservableCollection<string>
