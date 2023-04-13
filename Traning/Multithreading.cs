@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Traning
@@ -19,6 +20,7 @@ namespace Traning
 
         //Наряду с оператором lock для синхронизации потоков мы можем использовать мониторы, 
         //представленные классом System.Threading.Monitor.
+        //Также для синхронизации потоков используются мьютексы, семафоры, класс AutoResetEvent;
     }
     class Thr
     {
@@ -41,6 +43,39 @@ namespace Traning
                     Console.Write(i);
                     Thread.Sleep(500);
                 }
+            }
+        }
+    }
+    class Pay
+    {
+        static Semaphore semaphore = new Semaphore(2,2);
+        Thread thread;
+        int count = 2;
+
+        public Pay(int i)
+        {
+            thread = new Thread(Payment);
+            thread.Name = $"Клиент {i}";
+            thread.Start();
+        }
+
+        public void Payment()
+        {
+            while (count > 0)
+            {
+                semaphore.WaitOne();  // ожидаем, когда освободиться место
+
+                Console.WriteLine($"{Thread.CurrentThread.Name} входит в магазин");
+
+                Console.WriteLine($"{Thread.CurrentThread.Name} оплачивает");
+                Thread.Sleep(1000);
+
+                Console.WriteLine($"{Thread.CurrentThread.Name} покидает магазин");
+
+                semaphore.Release();  // освобождаем место
+
+                count--;
+                Thread.Sleep(1000);
             }
         }
     }

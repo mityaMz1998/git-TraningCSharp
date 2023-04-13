@@ -7,10 +7,10 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Collections;
 using System.Threading;
+using System.Reflection.PortableExecutable;
 
 //public delegate void ThreadStart();
 //Многопоточность
-// Блокировка кода (lock)
 int x;
 AutoResetEvent waitHandler = new AutoResetEvent(true);
 Mutex mutexObj = new();
@@ -25,16 +25,22 @@ for (int i = 1; i < 6; i++)
 //
 void Print() 
 {
-    // Мьютексы
-    mutexObj.WaitOne();     // приостанавливаем поток до получения мьютекса
-    x = 1;
+    //Семафоры
     for (int i = 1; i < 6; i++)
     {
-        Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
-        x++;
-        Thread.Sleep(100);
+        Pay pay = new Pay(i);
     }
-    mutexObj.ReleaseMutex();    // освобождаем мьютекс
+
+    // Мьютексы
+    //mutexObj.WaitOne();     // приостанавливаем поток до получения мьютекса
+    //x = 1;
+    //for (int i = 1; i < 6; i++)
+    //{
+    //    Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
+    //    x++;
+    //    Thread.Sleep(100);
+    //}
+    //mutexObj.ReleaseMutex();    // освобождаем мьютекс
 
     // Класс AutoResetEvent
     //waitHandler.WaitOne();  // ожидаем сигнала
@@ -63,6 +69,18 @@ void Print()
     //finally
     //{
     //    if (acquiredLock) Monitor.Exit(locker);
+    //}
+
+    // Блокировка кода при помощи оператора lock
+    //lock (locker)
+    //{
+    //    x = 1;
+    //    for (int i = 1; i < 6; i++)
+    //    {
+    //        Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
+    //        x++;
+    //        Thread.Sleep(100);
+    //    }
     //}
 }
 
