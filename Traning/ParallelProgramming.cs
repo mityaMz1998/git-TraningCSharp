@@ -8,5 +8,11 @@ namespace Traning
 {
     internal class ParallelProgramming
     {
+        //Wait() - Ожидание выполнения задачи
+    }
+    static class Calculate
+    {
+        public static int Sum(int x, int y) => x + y;
+        public static int Sub(int x, int y) => x - y;
     }
 }

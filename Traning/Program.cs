@@ -9,80 +9,118 @@ using System.Collections;
 using System.Threading;
 using System.Reflection.PortableExecutable;
 
-//public delegate void ThreadStart();
+//Параллельное программивароние TPL
+//Console.WriteLine("Main Starts");
+//// создаем задачу
+//Task task1 = new Task(() =>
+//{
+//    Console.WriteLine("Task Starts");
+//    Thread.Sleep(1000);     // задержка на 1 секунду - имитация долгой работы
+//    Console.WriteLine("Task Ends");
+//});
+////task1.Start();
+////task1.Wait();// запускаем задачу
+////task1.RunSynchronously();
+//Console.WriteLine("Main Ends");
+//task1.RunSynchronously();
+
+//Вложенная задача
+//var outer = Task.Factory.StartNew(() =>
+//{
+//    Console.WriteLine("Task outer start");
+//    var inner = Task.Factory.StartNew(() =>
+//    {
+//        Console.WriteLine("Task inner start");
+//        Thread.Sleep(1000);
+//        Console.WriteLine("Task inner finish");
+//    }, TaskCreationOptions.AttachedToParent);
+//    inner.Wait();
+//    Console.WriteLine("Task outer finish");
+//});
+//outer.Wait();
+//Console.WriteLine();
+
+//Задача продолжения:
+Task<int> task1 = new Task<int>(() => Calculate.Sum(4, 5));
+// задача продолжения
+Task printTask = task1.ContinueWith(t => Console.WriteLine(task1.Result));
+task1.Start();
+// ждем окончания второй задачи
+printTask.Wait();
+Console.WriteLine("Конец метода Main");
+
 //Многопоточность
-int x;
-AutoResetEvent waitHandler = new AutoResetEvent(true);
-Mutex mutexObj = new();
-object locker = new();
-for (int i = 1; i < 6; i++)
-{
-    Thread thread = new(Print);
-    thread.Name = $"Поток {i}";
-    thread.Start();
-}
+//int x;
+//AutoResetEvent waitHandler = new AutoResetEvent(true);
+//Mutex mutexObj = new();
+//object locker = new();
+//for (int i = 1; i < 6; i++)
+//{
+//    Thread thread = new(Print);
+//    thread.Name = $"Поток {i}";
+//    thread.Start();
+//}
 
-//
-void Print() 
-{
-    //Семафоры
-    for (int i = 1; i < 6; i++)
-    {
-        Pay pay = new Pay(i);
-    }
+//void Print() 
+//{
+//    //Семафоры
+//    for (int i = 1; i < 6; i++)
+//    {
+//        Pay pay = new Pay(i);
+//    }
 
-    // Мьютексы
-    //mutexObj.WaitOne();     // приостанавливаем поток до получения мьютекса
-    //x = 1;
-    //for (int i = 1; i < 6; i++)
-    //{
-    //    Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
-    //    x++;
-    //    Thread.Sleep(100);
-    //}
-    //mutexObj.ReleaseMutex();    // освобождаем мьютекс
+//    // Мьютексы
+//    //mutexObj.WaitOne();     // приостанавливаем поток до получения мьютекса
+//    //x = 1;
+//    //for (int i = 1; i < 6; i++)
+//    //{
+//    //    Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
+//    //    x++;
+//    //    Thread.Sleep(100);
+//    //}
+//    //mutexObj.ReleaseMutex();    // освобождаем мьютекс
 
-    // Класс AutoResetEvent
-    //waitHandler.WaitOne();  // ожидаем сигнала
-    //x = 1;
-    //for (int i = 1; i < 6; i++)
-    //{
-    //    Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
-    //    x++;
-    //    Thread.Sleep(100);
-    //}
-    //waitHandler.Set();  //  сигнализируем, что waitHandler в сигнальном состоянии
+//    // Класс AutoResetEvent
+//    //waitHandler.WaitOne();  // ожидаем сигнала
+//    //x = 1;
+//    //for (int i = 1; i < 6; i++)
+//    //{
+//    //    Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
+//    //    x++;
+//    //    Thread.Sleep(100);
+//    //}
+//    //waitHandler.Set();  //  сигнализируем, что waitHandler в сигнальном состоянии
 
-    // Монитор
-    //bool acquiredLock = false;
-    //try
-    //{
-    //    Monitor.Enter(locker, ref acquiredLock);
-    //    x = 1;
-    //    for (int i = 1; i < 6; i++)
-    //    {
-    //        Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
-    //        x++;
-    //        Thread.Sleep(100);
-    //    }
-    //}
-    //finally
-    //{
-    //    if (acquiredLock) Monitor.Exit(locker);
-    //}
+//    // Монитор
+//    //bool acquiredLock = false;
+//    //try
+//    //{
+//    //    Monitor.Enter(locker, ref acquiredLock);
+//    //    x = 1;
+//    //    for (int i = 1; i < 6; i++)
+//    //    {
+//    //        Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
+//    //        x++;
+//    //        Thread.Sleep(100);
+//    //    }
+//    //}
+//    //finally
+//    //{
+//    //    if (acquiredLock) Monitor.Exit(locker);
+//    //}
 
-    // Блокировка кода при помощи оператора lock
-    //lock (locker)
-    //{
-    //    x = 1;
-    //    for (int i = 1; i < 6; i++)
-    //    {
-    //        Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
-    //        x++;
-    //        Thread.Sleep(100);
-    //    }
-    //}
-}
+//    // Блокировка кода при помощи оператора lock
+//    //lock (locker)
+//    //{
+//    //    x = 1;
+//    //    for (int i = 1; i < 6; i++)
+//    //    {
+//    //        Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
+//    //        x++;
+//    //        Thread.Sleep(100);
+//    //    }
+//    //}
+//}
 
 
 //int chislo = 7;
