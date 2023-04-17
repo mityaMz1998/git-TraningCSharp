@@ -8,6 +8,54 @@ using System.Collections.Specialized;
 using System.Collections;
 using System.Threading;
 using System.Reflection.PortableExecutable;
+using System.Diagnostics;
+
+//Асинхронное программирование
+AsyncProgramming asyncProgramming = new AsyncProgramming();
+await foreach(var i in asyncProgramming.GetStringsAsync())
+    Console.WriteLine(i);
+
+//int a = await asyncProgramming.IntOutputAsync(4,5);
+//Console.WriteLine(a);
+
+//await asyncProgramming.SumOutputAsync(2);
+//asyncProgramming.SumOutputAsync1(3);
+
+Stopwatch stopwatch = new Stopwatch();
+//stopwatch.Start();
+//asyncProgramming.PrintName("Tom");
+//asyncProgramming.PrintName("Bob");
+//asyncProgramming.PrintName("Sam");
+//stopwatch.Stop();
+//Console.WriteLine(stopwatch.ElapsedMilliseconds);
+//stopwatch.Reset();
+//Console.WriteLine();
+//stopwatch.Start();
+//await asyncProgramming.PrintNameAsync("Kate");
+//await asyncProgramming.PrintNameAsync("Anna");
+//await asyncProgramming.PrintNameAsync("Julia");
+//stopwatch.Stop();
+//Console.WriteLine(stopwatch.ElapsedMilliseconds);
+//Console.WriteLine();
+//stopwatch.Reset();
+
+//var nameSimon = asyncProgramming.PrintNameAsync("Simon");
+//var nameFarel = asyncProgramming.PrintNameAsync("Farel");
+//var nameMoana = asyncProgramming.PrintNameAsync("Moana");
+//stopwatch.Start();
+//await Task.WhenAny(nameSimon, nameFarel, nameMoana);
+//await nameSimon;
+//await nameFarel;
+//await nameMoana;
+//stopwatch.Stop();
+//Console.WriteLine(stopwatch.ElapsedMilliseconds);
+//stopwatch.Reset();
+//Console.WriteLine();
+
+//Console.WriteLine("Начало");
+//asyncProgramming.StringOutputAsync();
+//Console.WriteLine("Конец");
+
 
 //Параллельное программивароние TPL
 //Console.WriteLine("Main Starts");
@@ -59,33 +107,6 @@ using System.Reflection.PortableExecutable;
 //);
 
 //ParallelLoopResult result = Parallel.ForEach<int>(new List<int>() { 1, 3, 5, 8 },Calculate.Multi);
-CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
-CancellationToken token = cancelTokenSource.Token;
-
-// задача вычисляет квадраты чисел
-Task task = new Task(() =>
-{
-    for (int i = 1; i < 10; i++)
-    {
-        if (token.IsCancellationRequested)  // проверяем наличие сигнала отмены задачи
-        {
-            Console.WriteLine("Операция прервана");
-            return;     //  выходим из метода и тем самым завершаем задачу
-        }
-        Console.WriteLine($"Квадрат числа {i} равен {i * i}");
-        Thread.Sleep(200);
-    }
-}, token);
-task.Start();
-
-Thread.Sleep(1500);
-// после задержки по времени отменяем выполнение задачи
-cancelTokenSource.Cancel();
-// ожидаем завершения задачи
-Thread.Sleep(1000);
-//  проверяем статус задачи
-Console.WriteLine($"Task Status: {task.Status}");
-cancelTokenSource.Dispose(); // освобождаем ресурсы
 
 //Многопоточность
 //int x;
