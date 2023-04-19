@@ -10,10 +10,19 @@ using System.Threading;
 using System.Reflection.PortableExecutable;
 using System.Diagnostics;
 
+//DependencyInjection
+EmployeeBL employeeBL = new EmployeeBL(new EmployeeDAL());
+List<EmployeeM> ListEmployee = employeeBL.GetAllEmployees();
+foreach (EmployeeM emp in ListEmployee)
+{
+    Console.WriteLine($"ID = {emp.ID}, Name = {emp.Name}, Department = {emp.Department}");
+}
+//Console.ReadKey();
+
 //Асинхронное программирование
-AsyncProgramming asyncProgramming = new AsyncProgramming();
-await foreach(var i in asyncProgramming.GetStringsAsync())
-    Console.WriteLine(i);
+//AsyncProgramming asyncProgramming = new AsyncProgramming();
+//await foreach(var i in asyncProgramming.GetStringsAsync())
+//    Console.WriteLine(i);
 
 //int a = await asyncProgramming.IntOutputAsync(4,5);
 //Console.WriteLine(a);
@@ -21,7 +30,7 @@ await foreach(var i in asyncProgramming.GetStringsAsync())
 //await asyncProgramming.SumOutputAsync(2);
 //asyncProgramming.SumOutputAsync1(3);
 
-Stopwatch stopwatch = new Stopwatch();
+//Stopwatch stopwatch = new Stopwatch();
 //stopwatch.Start();
 //asyncProgramming.PrintName("Tom");
 //asyncProgramming.PrintName("Bob");
