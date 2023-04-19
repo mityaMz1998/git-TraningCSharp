@@ -47,22 +47,23 @@ namespace Traning
 
         //}
 
-        public IEmployeeDAL employeeDAL;
+        //public IEmployeeDAL employeeDAL;
         //public EmployeeBL(IEmployeeDAL employeeDAL)
         //{
         //    //пример с внедрением зависимостей в конструктор
         //    this.employeeDAL = employeeDAL;
         //}
-        public IEmployeeDAL EmployeeDataObject
+        //public IEmployeeDAL EmployeeDataObject
+        //{
+        //    // пример с внедрением зависимостей в свойство
+        //    set
+        //    {
+        //        this.employeeDAL = value;
+        //    }
+        //}
+        public List<EmployeeM> GetAllEmployees(IEmployeeDAL employeeDAL)
         {
-            // пример с внедрением зависимостей в свойство
-            set
-            {
-                this.employeeDAL = value;
-            }
-        }
-        public List<EmployeeM> GetAllEmployees()
-        {
+            // пример с внедрением зависимостей через метод
             return employeeDAL.SelectAllEmployees();
         }
     }

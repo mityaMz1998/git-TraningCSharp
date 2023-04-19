@@ -12,8 +12,8 @@ using System.Diagnostics;
 
 //DependencyInjection (внедрение зависимостей)
 EmployeeBL employeeBL = new EmployeeBL();
-employeeBL.EmployeeDataObject = new EmployeeDAL();
-List<EmployeeM> ListEmployee = employeeBL.GetAllEmployees();
+//employeeBL.EmployeeDataObject = new EmployeeDAL();
+List<EmployeeM> ListEmployee = employeeBL.GetAllEmployees(new EmployeeDAL());
 foreach (EmployeeM emp in ListEmployee)
 {
     Console.WriteLine($"ID = {emp.ID}, Name = {emp.Name}, Department = {emp.Department}");
