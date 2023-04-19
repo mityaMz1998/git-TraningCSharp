@@ -9,6 +9,7 @@ namespace Traning
     internal class DependencyInjectionExample
     {
     }
+    // Внедрение зависимостей в конструктор
     public interface IEmployeeDAL
     {
         List<EmployeeM> SelectAllEmployees();
@@ -36,6 +37,7 @@ namespace Traning
     }
     public class EmployeeBL
     {
+        // пример без внедрения зависимостей
         //public EmployeeDAL employeeDAL;
         //public List<EmployeeM> GetAllEmployees()
         //{
@@ -44,11 +46,20 @@ namespace Traning
         //    return employeeDAL.SelectAllEmployees();
 
         //}
+
         public IEmployeeDAL employeeDAL;
-        //Injecting the Dependency Object using Constructor means it is a Loose Coupling
-        public EmployeeBL(IEmployeeDAL employeeDAL)
+        //public EmployeeBL(IEmployeeDAL employeeDAL)
+        //{
+        //    //пример с внедрением зависимостей в конструктор
+        //    this.employeeDAL = employeeDAL;
+        //}
+        public IEmployeeDAL EmployeeDataObject
         {
-            this.employeeDAL = employeeDAL;
+            // пример с внедрением зависимостей в свойство
+            set
+            {
+                this.employeeDAL = value;
+            }
         }
         public List<EmployeeM> GetAllEmployees()
         {

@@ -10,14 +10,15 @@ using System.Threading;
 using System.Reflection.PortableExecutable;
 using System.Diagnostics;
 
-//DependencyInjection
-EmployeeBL employeeBL = new EmployeeBL(new EmployeeDAL());
+//DependencyInjection (внедрение зависимостей)
+EmployeeBL employeeBL = new EmployeeBL();
+employeeBL.EmployeeDataObject = new EmployeeDAL();
 List<EmployeeM> ListEmployee = employeeBL.GetAllEmployees();
 foreach (EmployeeM emp in ListEmployee)
 {
     Console.WriteLine($"ID = {emp.ID}, Name = {emp.Name}, Department = {emp.Department}");
 }
-//Console.ReadKey();
+
 
 //Асинхронное программирование
 //AsyncProgramming asyncProgramming = new AsyncProgramming();
