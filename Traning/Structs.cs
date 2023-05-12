@@ -10,7 +10,7 @@ namespace Traning
     public struct Structs
     {
     }
-    public struct PersonStruct 
+    public struct PersonStruct
     {
         public string name;
         public int age;

@@ -65,6 +65,39 @@ namespace Traning
         {
             // пример с внедрением зависимостей через метод
             return employeeDAL.SelectAllEmployees();
+        }    
+    }
+    interface ID
+    {
+        int Sum(int x, int y, int z);
+        string Output();
+    }
+    class Ddd : ID
+    {
+        public int Sum(int x, int y, int z) => x + y + z;
+        public string Output() => "Output";
+    }
+
+    class Eee
+    {
+        ID Id;
+        public Eee(ID id)
+        {
+            Id = id;
+        }
+        //public ID E
+        //{
+        //    set 
+        //    {
+        //        this.Id = value;
+        //    }
+        //}
+        //Ddd ddd;
+        public int GetSum()
+        {
+            //ddd = new Ddd();
+            Console.WriteLine("1 " + Id.Output());
+            return Id.Sum(4, 5, 6);
         }
     }
 }

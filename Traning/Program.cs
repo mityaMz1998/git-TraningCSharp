@@ -9,16 +9,38 @@ using System.Collections;
 using System.Threading;
 using System.Reflection.PortableExecutable;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
-//DependencyInjection (внедрение зависимостей)
-EmployeeBL employeeBL = new EmployeeBL();
-//employeeBL.EmployeeDataObject = new EmployeeDAL();
-List<EmployeeM> ListEmployee = employeeBL.GetAllEmployees(new EmployeeDAL());
-foreach (EmployeeM emp in ListEmployee)
+
+Console.WriteLine(GetLastCharacter(""));
+static char GetLastCharacter(string str)
 {
-    Console.WriteLine($"ID = {emp.ID}, Name = {emp.Name}, Department = {emp.Department}");
+    if (string.IsNullOrEmpty(str))
+    {
+        throw new ArgumentNullException($"{nameof(str)} is null.");
+    }
+
+    return str[^1];
 }
 
+//DependencyInjection (внедрение зависимостей)
+//EmployeeBL employeeBL = new EmployeeBL();
+////employeeBL.EmployeeDataObject = new EmployeeDAL();
+//List<EmployeeM> ListEmployee = employeeBL.GetAllEmployees(new EmployeeDAL());
+//foreach (EmployeeM emp in ListEmployee)
+//{
+//    Console.WriteLine($"ID = {emp.ID}, Name = {emp.Name}, Department = {emp.Department}");
+//}
+
+//Ddd d = new Ddd();
+//Console.WriteLine(d.Sum(7, 5, 3));
+//Console.WriteLine(d.Output());
+
+//Eee e = new Eee(d);
+//Console.WriteLine(e.GetSum());
+//e.E = new Ddd();
+//Console.WriteLine(e.E);
+//Console.WriteLine(e.GetSum());
 
 //Асинхронное программирование
 //AsyncProgramming asyncProgramming = new AsyncProgramming();
