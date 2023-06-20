@@ -10,20 +10,37 @@ using System.Threading;
 using System.Reflection.PortableExecutable;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
+using System.ComponentModel.Design;
 
+string n = "N";
 
-Console.WriteLine(GetLastCharacter(""));
-static char GetLastCharacter(string str)
+switch (n)
 {
-    if (string.IsNullOrEmpty(str))
-    {
-        throw new ArgumentNullException($"{nameof(str)} is null.");
-    }
-
-    return str[^1];
+    case "Y":
+        Console.WriteLine("Y is the option");
+        break;
+    case "N":
+        Console.WriteLine("N is the option");
+        //break;
+    default:
+        Console.WriteLine("Default option");
+        break;
 }
 
-//DependencyInjection (внедрение зависимостей)
+
+
+//float somevariable = (Double)12.502D;
+
+//do
+//    //{
+
+//    //} while (count > 0);
+//}
+//Console.WriteLine(Calculate(2, 3));
+
+
+//DependencyInjection(внедрение зависимостей)
 //EmployeeBL employeeBL = new EmployeeBL();
 ////employeeBL.EmployeeDataObject = new EmployeeDAL();
 //List<EmployeeM> ListEmployee = employeeBL.GetAllEmployees(new EmployeeDAL());
