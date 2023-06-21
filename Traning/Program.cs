@@ -15,7 +15,7 @@ using System.ComponentModel.Design;
 
 string n = "N";
 
-switch (n)
+switch ("N")
 {
     case "Y":
         Console.WriteLine("Y is the option");
