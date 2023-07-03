@@ -13,22 +13,36 @@ using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using System.ComponentModel.Design;
 
-string n = "N";
-
-switch ("N")
+/// <summary>
+/// Выполнение простых математических действий над числами
+/// </summary>
+public class Calculator
 {
-    case "Y":
-        Console.WriteLine("Y is the option");
-        break;
-    case "N":
-        Console.WriteLine("N is the option");
-        //break;
-    default:
-        Console.WriteLine("Default option");
-        break;
+    /// <summary>
+    /// Получаем результат операции деления (n1 / n2)
+    /// </summary>
+    /// <param name="n1">Первое число</param>
+    /// <param name="n2">Второе число</param>
+    /// <returns>Результат</returns>
+    public double Div(double n1, double n2)
+    {
+        // Проверка деления на "0"
+        if (n2 == 0.0D)
+            throw new DivideByZeroException();
+        return n1 / n2;
+    }
+
+    /// <summary>
+    /// Получаем результат сложения чисел и их увеличения на единицу
+    /// </summary>
+    /// <param name="n1"></param>
+    /// <param name="n2"></param>
+    /// <returns></returns>
+    public double AddWithInc(double n1, double n2)
+    {
+        return n1 + n2 + 1;
+    }
 }
-
-
 
 //float somevariable = (Double)12.502D;
 
